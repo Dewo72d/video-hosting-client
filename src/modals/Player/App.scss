@@ -1,0 +1,25 @@
+@import "../../uikit";
+
+.App {
+  position: relative;
+  width: 900px;
+  height: 700px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: $light-black;
+
+  border-radius: 6px;
+}
+
+.close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 2;
+
+  color: $white;
+  cursor: pointer;
+}

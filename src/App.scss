@@ -1,0 +1,46 @@
+@import "uikit";
+
+body, html {
+  width: 100%;
+  height: 100%;
+  background-color: $main-black;
+
+  padding: 0;
+  margin: 0;
+  font-family: 'roboto', sans-serif;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+* {
+  scrollbar-color: transparent transparent;
+  letter-spacing: 0.2px !important;
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  height: 0px;
+  width: 0px;
+  scrollbar-width: none;
+}
+
+
+.App {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+
+.wrapper {
+  padding-top: calc(65px + 2rem);
+
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}

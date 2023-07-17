@@ -1,0 +1,25 @@
+@import "../../uikit";
+
+.App {
+  position: fixed;
+
+  box-sizing: border-box;
+  padding:0.5rem ;
+
+  width: 250px;
+  min-width: 250px;
+  height: 100%;
+  min-height: 100%;
+
+  background-color: $black;
+
+  &>span {
+    @include text-bold-14($white);
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .App {
+    display: none;
+  }
+}

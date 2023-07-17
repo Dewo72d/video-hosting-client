@@ -1,0 +1,61 @@
+@import "../../uikit";
+
+.App {
+  position: relative;
+
+  width: 100%;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+
+  transition: all 0.2s ease-in-out;
+
+  & > input {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
+
+    border: 1px solid $grey;
+    border-radius: 6px;
+    background-color: transparent;
+
+    @include text-reg-14($white-75);
+
+    &:focus {
+      border-color: $orange;
+      outline: 0;
+
+      ~ label {
+        height: 2px;
+        padding-left: 0.5rem;
+        justify-content: flex-start;
+        align-items: center;
+        top: -0.5px;
+        @include text-reg-14($white-50);
+        background-color: $black;
+      }
+    }
+
+    &:not([value=""]) {
+
+      ~ label {
+        height: 2px;
+        padding-left: 0.5rem;
+        justify-content: flex-start;
+        align-items: center;
+        top: -0.5px;
+
+        @include text-reg-14($white-50);
+        background-color: $black;
+      }
+    }
+
+
+    &::placeholder {
+      @include text-reg-14($white-50);
+    }
+  }
+
+}

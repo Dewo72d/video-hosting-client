@@ -1,0 +1,43 @@
+$white: rgba(#c7e2fb, 0.95);
+$white-75: rgba(#c7e2fb, 0.75);
+$white-50: rgba(#c7e2fb, 0.5);
+
+$green: #4bd371;
+$red: #ff5b5b;
+$orange: #ff9000;
+
+$main-black: #000;
+$black: #0e0e0e;
+$light-black: #222;
+$grey:#969696;
+
+
+@mixin text-reg-14($col: $white-50) {
+  font-size: 14px;
+  font-weight: 400;
+  color: $col;
+}
+
+@mixin text-bold-14($col: $white-50) {
+  font-size: 14px;
+  font-weight: 700;
+  color: $col;
+}
+
+@mixin text-bold-16($col: $white-50) {
+  font-size: 16px;
+  font-weight: 700;
+  color: $col;
+}
+
+@mixin text-bold-20($col: $white-50) {
+  font-size: 20px;
+  font-weight: 700;
+  color: $col;
+}
+
+@mixin text-bold-24($col: $white-50) {
+  font-size: 24px;
+  font-weight: 700;
+  color: $col;
+}

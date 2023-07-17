@@ -1,0 +1,30 @@
+@import "../../uikit";
+
+.App {
+  box-sizing: border-box;
+  padding: 0.5rem;
+
+  min-width: 50px;
+  min-height: 40px;
+  width: fit-content;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 6px;
+  box-shadow: 0px 3px 0px darken($orange, 30%);
+
+  background-color: $orange;
+  @include text-bold-14($black);
+  cursor: pointer;
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: lighten($orange, 4%);
+    box-shadow: 0px 1px 0px darken($orange, 30%);
+    transform: translateY(2px)
+  }
+}
