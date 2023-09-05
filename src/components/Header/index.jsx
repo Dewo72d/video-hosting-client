@@ -7,21 +7,22 @@ import styles from "./App.scss";
 import Button from "../../Containers/Button";
 
 //Redux
-import {useDispatch} from "react-redux";
-import {modalSlice} from "../../utils/store/reducers/changeModal";
+import { useDispatch } from "react-redux";
+import { modalSlice } from "../../utils/store/reducers/changeModal";
 
-export default function Header({}) {
+export default function Header({ }) {
     const dispatch = useDispatch();
-    const {on} = modalSlice.actions;
+    const { on } = modalSlice.actions;
 
-    const upload = () => {
-        dispatch(on({isOpen: true, modal: "upload", modalData: {}}));
+
+    const openModal = (modal, data) => {
+        dispatch(on({ isOpen: true, modal: modal, modalData: data ? data : {} }));
     }
-
 
     return (
         <div className={styles.App}>
-            <Button text={"Upload"} cb={upload}/>
+            <Button text={"Upload"} cb={() => openModal("upload")} />
+            <Button text={"Login"}  cb={() => openModal("login")} />
         </div>
     )
 }

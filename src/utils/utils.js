@@ -6,7 +6,7 @@ export async function request({path, method, data, headers}) {
             const res = await axios({
                 method: method? method : "GET",
                 data: data ? data : {},
-                url: `http://45.83.1.227:60110/${path}`,
+                url: `http://45.83.2.32:60110/${path}`,
                 headers: headers ? { ...headers } : {},
 
             })

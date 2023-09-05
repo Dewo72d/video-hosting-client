@@ -17,7 +17,7 @@ export default function Player({modalData}) {
     const {off} = modalSlice.actions;
 
     useEffect(() => {
-        console.log("MODAL DATA >>> ", modalData?.video)
+        console.log("MODAL DATA >>> ", modalData)
     }, [modalData]);
 
     return (
@@ -28,7 +28,7 @@ export default function Player({modalData}) {
                 playing={true}
                 width={"100%"}
                 height={"100%"}
-                url={`http://45.83.1.227:60110/videos/video/${modalData?.video}`}
+                url={`http://45.83.2.32:60110/videos/video/${modalData?.video}`}
             />
         </div>
     )

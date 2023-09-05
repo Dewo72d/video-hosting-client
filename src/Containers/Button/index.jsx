@@ -9,7 +9,7 @@ import styles from "./App.scss";
 export default function Button({text, cb, style, type}) {
 
     return (
-        <div className={styles.App} style={style} onClick={cb}  >
+        <div className={styles.App} style={style} onClick={cb}>
             {text}
         </div>
     )
