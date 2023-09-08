@@ -1,14 +1,14 @@
 import axios from "axios";
 
-export async function request({path, method, data, headers}) {
+export async function request({ path, method, data, headers }) {
     return new Promise(async (resolve, reject) => {
         try {
             const res = await axios({
-                method: method? method : "GET",
+                method: method ? method : "GET",
                 data: data ? data : {},
-                url: `http://45.83.2.32:60110/${path}`,
+                url: `https://api.dewo.pp.ua/${path}`,
                 headers: headers ? { ...headers } : {},
-
+                withCredentials: true,
             })
             resolve(res)
 
