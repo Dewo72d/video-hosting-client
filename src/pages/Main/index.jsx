@@ -29,7 +29,7 @@ export default function Main() {
     }
 
     async function init() {
-        const res = request({
+        const res = await request({
             path: "/videos/test"
         })
 
