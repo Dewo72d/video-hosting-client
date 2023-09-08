@@ -28,7 +28,7 @@ export default function Player({modalData}) {
                 playing={true}
                 width={"100%"}
                 height={"100%"}
-                url={`https://dewo.pp.ua/videos/video/${modalData?.video}`}
+                url={`https://api.dewo.pp.ua/videos/video/${modalData?.video}`}
             />
         </div>
     )
