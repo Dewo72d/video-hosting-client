@@ -30,7 +30,7 @@ export default function Main() {
 
     async function init() {
         const res = await request({
-            path: "/videos/test"
+            path: "videos/test"
         })
 
         console.log("RES TEST >>>> ", res);
