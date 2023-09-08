@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 
 //Styles
@@ -6,29 +6,34 @@ import styles from "./App.scss";
 
 //Component
 import Card from "../../Containers/Card";
-import {request} from "../../utils/utils";
+import { request } from "../../utils/utils";
 
 //Redux
 import ReactPlayer from "react-player";
-import {useAppSelector} from "../../utils/hooks/redux";
-import {modalSlice} from "../../utils/store/reducers/changeModal";
-import {cardSlice, fetchVideos} from "../../utils/store/reducers/videos";
-import {useDispatch} from "react-redux";
-import {AsyncThunkAction} from "@reduxjs/toolkit";
+import { useAppSelector } from "../../utils/hooks/redux";
+import { modalSlice } from "../../utils/store/reducers/changeModal";
+import { cardSlice, fetchVideos } from "../../utils/store/reducers/videos";
+import { useDispatch } from "react-redux";
+import { AsyncThunkAction } from "@reduxjs/toolkit";
 
 export default function Main() {
 
     const dispatch = useDispatch();
-    const {on} = modalSlice.actions
+    const { on } = modalSlice.actions
 
     const videos = useAppSelector(state => state.videoReducer)
 
 
     async function click(video) {
-        dispatch(on({isOpen: true, modal: "video", modalData: {video}}))
+        dispatch(on({ isOpen: true, modal: "video", modalData: { video } }))
     }
 
     async function init() {
+        const res = request({
+            path: "/videos/test"
+        })
+
+        console.log("RES TEST >>>> ", res);
 
         dispatch(fetchVideos())
     }
