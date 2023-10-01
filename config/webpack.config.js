@@ -2,6 +2,7 @@ const webpack = require("webpack")
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require('path')
 const fileLoader = require("file-loader");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 
 module.exports = {
@@ -15,6 +16,7 @@ module.exports = {
     resolve: {
         extensions: [ ".jsx", ".js"]
     },
+    
     //devtool: 'inline-source-map',
     devtool: 'eval-source-map',
 
@@ -61,8 +63,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: "DEVIDEOS",
             template: "./src/index.html",
-            favicon: "./public/favicon.ico"
+            favicon: "./public/favicon.ico",
         }),
+       
     ],
     devServer: {
         port: 3001,

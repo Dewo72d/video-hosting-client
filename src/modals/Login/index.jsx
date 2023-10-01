@@ -30,11 +30,11 @@ export default function Login({ modalData }) {
     const [ username, setUsername ] = useState("");
     const [ password, setPassword ] = useState("");
 
-    const submit = async () => {
+    const sign = async (type) => {
         console.log("daTA >>>> ", username, password);
         const res = await request({
             method: "POST",
-            path: `auth/login`,
+            path: `auth/${type}`,
             data: {
                 username,
                 password
@@ -45,6 +45,7 @@ export default function Login({ modalData }) {
             console.log("RES LOGIN >>>> " , res);
     }
 
+    
     return (
         <div className={styles.App}>
             <Close className={styles.close} onClick={() => dispatch(off())} />
@@ -53,7 +54,8 @@ export default function Login({ modalData }) {
                 <Input value={username} onChange={e => setUsername(e.target.value)} placeholder={'Username'} />
                 <Input value={password} onChange={e => setPassword(e.target.value)} placeholder={'Password'} />
             </div>
-            <Button text={"Submit"} cb={() => submit()} />
+            <Button text={"Sign in"} cb={() => sign("login")} />
+            <Button text={"Sign up"} cb={() => sign("signup")} />
         </div>
     )
 }
