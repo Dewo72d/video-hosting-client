@@ -12,40 +12,17 @@ import Button from "../../Containers/Button"
 //Redux
 import { useDispatch } from "react-redux";
 import { modalSlice } from "../../utils/store/reducers/changeModal";
+import { signUser } from "../../utils/store/reducers/user";
 
-//Utils
-import { request } from "../../utils/utils"
-
-export default function Login({ modalData }) {
+export default function Login() {
 
     const dispatch = useDispatch();
     const { off } = modalSlice.actions;
 
-    useEffect(() => {
 
-        console.log("MODAL DATA >>> ", modalData)
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
 
-    }, [modalData]);
-
-    const [ username, setUsername ] = useState("");
-    const [ password, setPassword ] = useState("");
-
-    const sign = async (type) => {
-        console.log("daTA >>>> ", username, password);
-        const res = await request({
-            method: "POST",
-            path: `auth/${type}`,
-            data: {
-                username,
-                password
-            }
-
-            });
-
-            console.log("RES LOGIN >>>> " , res);
-    }
-
-    
     return (
         <div className={styles.App}>
             <Close className={styles.close} onClick={() => dispatch(off())} />
@@ -54,8 +31,8 @@ export default function Login({ modalData }) {
                 <Input value={username} onChange={e => setUsername(e.target.value)} placeholder={'Username'} />
                 <Input value={password} onChange={e => setPassword(e.target.value)} placeholder={'Password'} />
             </div>
-            <Button text={"Sign in"} cb={() => sign("login")} />
-            <Button text={"Sign up"} cb={() => sign("signup")} />
+            <Button text={"Sign in"} cb={() => dispatch(signUser({ type: "login", password: password, username: username }))} />
+            <Button text={"Sign up"} cb={() => dispatch(signUser({ type: "signup", password: password, username: username }))} />
         </div>
     )
 }

@@ -20,12 +20,12 @@ export const cardSlice = createSlice({
     initialState,
     reducers: {
         getVideos: (state, payload) => {
-            console.log("HEHE GET", state, payload)
+            //console.log("HEHE GET", state, payload)
         }
     },
     extraReducers: {
         [fetchVideos.fulfilled]: (state,payload) => {
-            console.log("fetchVideos.fulfilled >>> ", payload)
+            //console.log("fetchVideos.fulfilled >>> ", payload)
             state.cards = payload.payload
         },
         [fetchVideos.rejected]: (state, action) => {

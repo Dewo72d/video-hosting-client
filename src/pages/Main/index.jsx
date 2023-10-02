@@ -9,12 +9,10 @@ import Card from "../../Containers/Card";
 import { request } from "../../utils/utils";
 
 //Redux
-import ReactPlayer from "react-player";
 import { useAppSelector } from "../../utils/hooks/redux";
 import { modalSlice } from "../../utils/store/reducers/changeModal";
-import { cardSlice, fetchVideos } from "../../utils/store/reducers/videos";
+import { fetchVideos } from "../../utils/store/reducers/videos";
 import { useDispatch } from "react-redux";
-import { AsyncThunkAction } from "@reduxjs/toolkit";
 
 export default function Main() {
 
@@ -23,6 +21,8 @@ export default function Main() {
 
     const videos = useAppSelector(state => state.videoReducer)
     const [cards, setCards] = useState([])
+
+    const user = useAppSelector(state => state.userReducer.user)
 
 
     async function click(video) {
@@ -48,7 +48,7 @@ export default function Main() {
     return (
         <div className={styles.App}>
             <div className={styles.cards}>
-                {cards.length > 0 && cards.map((el) => (
+                {(user && cards.length > 0) ? cards.map((el) => (
                     <Card
                         video={el.video}
                         id={el.id}
@@ -57,7 +57,8 @@ export default function Main() {
                         cb={click}
                         key={el.video}
                     />
-                ))}
+                )) : <div className={styles.login}>Sign In or Sign Up, please</div>
+                }
             </div>
         </div>
     )

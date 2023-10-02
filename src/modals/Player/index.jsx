@@ -16,10 +16,6 @@ export default function Player({modalData}) {
     const dispatch = useDispatch();
     const {off} = modalSlice.actions;
 
-    useEffect(() => {
-        console.log("MODAL DATA >>> ", modalData)
-    }, [modalData]);
-
     return (
         <div className={styles.App}>
             <Close className={styles.close} onClick={() => dispatch(off())}/>

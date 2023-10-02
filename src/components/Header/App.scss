@@ -12,17 +12,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem ;
+  gap: 2rem;
 
   background-color: $black;
 
-  &>span{
+  &>span {
     @include text-bold-14($white);
   }
 }
 
-@media only screen and (max-width: 760px) {
-  .App {
+.header {
+  width: 100%;
 
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  &>.username {
+    @include text-bold-16($white);
   }
+}
+
+.wrapper {
+  display: flex;
+  gap: 1rem;
+
+
+}
+
+@media only screen and (max-width: 760px) {
+  .App {}
 }
