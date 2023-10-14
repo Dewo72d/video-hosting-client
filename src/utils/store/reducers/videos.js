@@ -15,14 +15,20 @@ export const fetchVideos = createAsyncThunk(
     }
 )
 
+export const fetchVideosByUser = createAsyncThunk(
+    "getVideos/fetchVideos",
+    async function (params) {
+        const {name,id} = params
+    
+        const res = await request({path: `videos/channel/${name}/${id}`, method: "GET"});
+        
+        return res.data
+    }
+)
+
 export const cardSlice = createSlice({
     name: "cards",
     initialState,
-    reducers: {
-        getVideos: (state, payload) => {
-            //console.log("HEHE GET", state, payload)
-        }
-    },
     extraReducers: {
         [fetchVideos.fulfilled]: (state,payload) => {
             //console.log("fetchVideos.fulfilled >>> ", payload)
@@ -30,6 +36,14 @@ export const cardSlice = createSlice({
         },
         [fetchVideos.rejected]: (state, action) => {
             console.log("STAATE REJJ >>> ", state, action)
+        },
+        [fetchVideosByUser.fulfilled]: (state,payload) => {
+            console.log("fetchVideos.fulfilled >>> ", payload)
+                console.log("CARDS >>> ", state.cards);
+            state.cards = payload.payload;
+        },
+        [fetchVideosByUser.rejected]: (state, action) => {
+            console.log("STAATE REJJ >>> ", state,'\n', action)
         }
     }
 })

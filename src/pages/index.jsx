@@ -1,8 +1,12 @@
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
+import styles from "./App.scss";
+
 //Components
 import Main from './Main';
+import Profile from './Profile'
+import Channel from './Channel'
 
 //Redux
 import { getUser } from '../utils/store/reducers/user';
@@ -22,8 +26,12 @@ export default function App() {
     }, [])
 
     return (
-        <Routes>
-            <Route index={true} path="/" element={<Main />} />
-        </Routes>
+        <div className={styles.App}>
+            <Routes>
+                <Route path="/" element={<Main />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/channel/:name/:id" element={<Channel />} />
+            </Routes>
+        </div>
     );
 }

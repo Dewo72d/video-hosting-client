@@ -1,0 +1,19 @@
+@import "../../uikit.scss";
+
+.App {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.header {
+    &>span {
+        @include text-bold-20($orange)
+    }
+}
+
+.videos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}

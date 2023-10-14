@@ -12,6 +12,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, '../build'),
         filename: '[name].bundle.js',
+        publicPath:"/"
     },
     resolve: {
         extensions: [ ".jsx", ".js"]
@@ -70,6 +71,7 @@ module.exports = {
     devServer: {
         port: 3001,
         hot: true,
+        historyApiFallback: true,
     },
     mode: 'development'
 }

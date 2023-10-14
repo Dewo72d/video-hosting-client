@@ -1,0 +1,13 @@
+@import "../uikit.scss";
+
+.App {
+    box-sizing: border-box;
+    padding: 1rem;
+    margin: 0 2rem 0 calc(250px + 2rem); //sidebar + padding
+  
+    width: 100%;
+    height: 100%;
+    background-color: $black;
+    border-radius: 6px;
+    overflow-y: scroll;
+}

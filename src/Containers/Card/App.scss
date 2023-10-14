@@ -18,6 +18,12 @@
   }
 }
 
+.link {
+  &>span {
+    color: $orange !important;
+  }
+}
+
 
 .preview {
   position: relative;
@@ -25,7 +31,7 @@
   min-height: 250px;
 
   img {
-    border-radius: 6px;
+    border-radius: 6px 6px 0 0;
     width: 100%;
     height: 250px;
   }

@@ -47,20 +47,20 @@ export default function Main() {
 
     return (
         <div className={styles.App}>
-            <div className={styles.cards}>
-                {(user && cards.length > 0) ? cards.map((el) => (
+            {
+                (user && cards.length > 0) ? cards.map((el) => (
                     <Card
                         video={el.video}
                         id={el.id}
                         name={el.name}
                         username={el.user.username}
                         description={el.description}
+                        user_id={el.user_id}
                         cb={click}
-                        key={el.video}
+                        key={el.id}
                     />
                 )) : <></>
-                }
-            </div>
+            }
         </div>
     )
 }

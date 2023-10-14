@@ -1,15 +1,29 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
 //Styles
 import styles from "./App.scss";
 
 //Components
 
-export default function Sidebar ({}) {
+const links = [
+    {
+        name: "Main",
+        value: "/"
+    },
+    {
+        name: "Profile",
+        value: "/profile"
+    },
+]
+
+export default function Sidebar({ }) {
 
     return (
         <div className={styles.App}>
-            <span>Side bar</span>
+            {
+                links.map((link, index) => (<Link to={link.value}>{link.name}</Link>))
+            }
         </div>
     )
 }
