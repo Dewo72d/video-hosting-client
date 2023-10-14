@@ -53,11 +53,12 @@ export default function Main() {
                         video={el.video}
                         id={el.id}
                         name={el.name}
+                        username={el.user.username}
                         description={el.description}
                         cb={click}
                         key={el.video}
                     />
-                )) : <div className={styles.login}>Sign In or Sign Up, please</div>
+                )) : <></>
                 }
             </div>
         </div>

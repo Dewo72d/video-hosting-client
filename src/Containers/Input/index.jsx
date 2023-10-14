@@ -21,7 +21,7 @@ export default function Input({
     return (
         <div className={styles.App} style={style}>
             <input
-                type={`${type}`}
+                type={type}
                 autoComplete="off"
                 value={value}
                 onChange={(e) => onChange ? onChange(e) : null}

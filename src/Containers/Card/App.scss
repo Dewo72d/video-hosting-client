@@ -30,7 +30,7 @@
     height: 250px;
   }
 
-  & > span {
+  &>span {
     position: absolute;
     bottom: 0;
 
@@ -48,6 +48,12 @@
   }
 }
 
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .info {
   box-sizing: border-box;
   padding: 0.5rem;
@@ -56,11 +62,11 @@
   flex-direction: column;
   gap: 0.5rem;
 
-  & > span:nth-child(1) {
+  &>span:nth-child(1) {
     @include text-bold-16($white);
   }
 
-  & > span:nth-child(2) {
+  &>span:nth-child(2) {
     @include text-reg-14($white-75);
   }
 }

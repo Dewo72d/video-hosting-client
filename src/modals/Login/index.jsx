@@ -29,7 +29,7 @@ export default function Login() {
 
             <div className={styles.form}>
                 <Input value={username} onChange={e => setUsername(e.target.value)} placeholder={'Username'} />
-                <Input value={password} onChange={e => setPassword(e.target.value)} placeholder={'Password'} />
+                <Input type={'password'} value={password} onChange={e => setPassword(e.target.value)} placeholder={'Password'} />
             </div>
             <Button text={"Sign in"} cb={() => dispatch(signUser({ type: "login", password: password, username: username }))} />
             <Button text={"Sign up"} cb={() => dispatch(signUser({ type: "signup", password: password, username: username }))} />
