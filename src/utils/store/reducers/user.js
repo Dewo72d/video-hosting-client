@@ -99,12 +99,12 @@ export const changePassword = createAsyncThunk(
 )
 
 export const deleteVideo = createAsyncThunk(
-    "user/delete/video",
+    "users/user/delete/video",
     async function (video) {
         try {
             await request({
                 method: "POST",
-                path: `users/user/delete/video`,
+                path: `videos/video/delete`,
                 data: {
                     id: video.id
                 }
