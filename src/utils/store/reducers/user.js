@@ -10,6 +10,7 @@ export const getUser = createAsyncThunk(
     async function () {
         try {
             const res = await request({ path: "auth", method: "GET" });
+            console.log(res.data);
             return res.data
         } catch (error) {
             console.log("ERROR USER AUTH>>> ", error);
@@ -35,7 +36,6 @@ export const signUser = createAsyncThunk(
     "user/sign",
     async function (userData) {
         try {
-            console.log("WTF >>>> ", userData);
             const res = await request({
                 method: "POST",
                 path: `auth/${userData.type}`,
@@ -44,8 +44,8 @@ export const signUser = createAsyncThunk(
                     password: userData.password,
                 }
             });
-
-            console.log("RES SIGN >>> ", res);
+            console.log("RES >>> ", res);
+            alert(res.data)
             location.reload();
         } catch (error) {
             console.log("ERROR USER AUTH>>> ", error);
@@ -53,6 +53,71 @@ export const signUser = createAsyncThunk(
     }
 )
 
+
+export const changeUsername = createAsyncThunk(
+    "user/change/username",
+    async function (userData) {
+        try {
+            await request({
+                method: "POST",
+                path: `users/user/change/username`,
+                data: {
+                    username: userData.username
+                }
+            })
+            if (res?.data) {
+                alert("success")
+            }
+            
+        } catch (error) {
+            alert("Error")
+            console.log("ERROR USER CHANGE>>> ", error);
+        }
+    }
+)
+
+
+export const changePassword = createAsyncThunk(
+    "user/change/password",
+    async function (userData) {
+        try {
+            const res = await request({
+                method: "POST",
+                path: `users/user/change/password`,
+                data: {
+                    password: userData.password
+                }
+            })
+            if (res?.data) {
+                alert("success")
+            }
+        } catch (error) {
+            alert("Error")
+            console.log("ERROR USER CHANGE>>> ", error);
+        }
+    }
+)
+
+export const deleteVideo = createAsyncThunk(
+    "user/delete/video",
+    async function (video) {
+        try {
+            await request({
+                method: "POST",
+                path: `users/user/delete/video`,
+                data: {
+                    id: video.id
+                }
+            })
+            if (res?.data) {
+                alert("success")
+            }
+        } catch (error) {
+            alert("Error")
+            console.log("ERROR USER CHANGE>>> ", error);
+        }
+    }
+)
 
 export const userSlice = createSlice({
     name: "user",

@@ -10,9 +10,12 @@ import Clown from "../../assets/images/clown.png";
 
 //Redux
 import { modalSlice } from "../../utils/store/reducers/changeModal";
+import { deleteVideo } from "../../utils/store/reducers/user";
+import { fetchVideosByUser } from "../../utils/store/reducers/videos";
 import { useDispatch } from "react-redux";
+import Button from "../Button";
 
-export default function Card({ id, user_id, username, name, description, video, cb }) {
+export default function Card({ id, user_id, username, name, description, video, cb , canDelete}) {
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
@@ -22,12 +25,18 @@ export default function Card({ id, user_id, username, name, description, video, 
         navigate(`/channel/${username}/${user_id}`)
     }
 
-    async function click() {
+    const  click = async () => {
         dispatch(on({ isOpen: true, modal: "video", modalData: { video } }))
+    }
+
+    const delVideo = async () => {
+        dispatch(deleteVideo({id:id}));
+        dispatch( fetchVideosByUser({name:username, id:user_id}))
     }
 
     return (
         <div className={styles.App} >
+            
             <div className={styles.preview} onClick={() => !!cb ? cb(video) : click()}>
                 <img src={Clown} alt={""} />
             </div>
@@ -37,8 +46,9 @@ export default function Card({ id, user_id, username, name, description, video, 
                     <span>{name}</span>
                     <span>{description}</span>
                 </div>
-                <div className={`${styles.info} ${styles.link}`} onClick={goTochannel}>
-                    <span>{username}</span>
+                <div className={`${styles.info} ${styles.link}`} >
+                    <span onClick={goTochannel}>{username}</span>
+                    {canDelete && <Button text={'Delete'} cb={delVideo} />}
                 </div>
             </div>
         </div>

@@ -2,14 +2,16 @@
 
 
 .App {
+  position: relative;
+
   width: 400px;
   height: 100%;
-  border: 1px solid $grey;
-  border-radius: 6px;
 
   display: flex;
   flex-direction: column;
 
+  border: 1px solid $grey;
+  border-radius: 6px;
   transition: 0.25s;
 
   &:hover {
@@ -75,4 +77,13 @@
   &>span:nth-child(2) {
     @include text-reg-14($white-75);
   }
+}
+
+.delete {
+  position: absolute;
+  z-index: 1;
+  top: 0.5rem;
+  right: 0.5rem;
+
+  color: black;
 }

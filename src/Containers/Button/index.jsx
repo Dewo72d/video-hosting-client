@@ -6,7 +6,7 @@ import styles from "./App.scss";
 
 //Components
 
-export default function Button({text, cb, style, type}) {
+export default function Button({text, cb, style}) {
 
     return (
         <div className={styles.App} style={style} onClick={cb}>

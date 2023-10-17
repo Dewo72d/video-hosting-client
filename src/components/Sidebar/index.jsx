@@ -22,7 +22,7 @@ export default function Sidebar({ }) {
     return (
         <div className={styles.App}>
             {
-                links.map((link, index) => (<Link to={link.value}>{link.name}</Link>))
+                links.map((link, index) => (<Link key={index} to={link.value}>{link.name}</Link>))
             }
         </div>
     )

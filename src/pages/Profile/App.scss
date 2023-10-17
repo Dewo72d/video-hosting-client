@@ -1,5 +1,25 @@
 @import "../../uikit.scss";
 
 .App {
-    color: red
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.control {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .section {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+
+.videos {
+    display: flex;
+    gap: 1rem;
 }
