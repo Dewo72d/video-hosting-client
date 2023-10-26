@@ -16,6 +16,10 @@ export default function Player({modalData}) {
     const dispatch = useDispatch();
     const {off} = modalSlice.actions;
 
+    useEffect(()=> {
+        console.log("ODAL >>> ", modalData);
+    }, [modalData])
+
     return (
         <div className={styles.App}>
             <Close className={styles.close} onClick={() => dispatch(off())}/>
@@ -24,7 +28,7 @@ export default function Player({modalData}) {
                 playing={true}
                 width={"100%"}
                 height={"100%"}
-                url={`https://api.dewo.pp.ua/videos/video/${modalData?.video}`}
+                url={`https://api.dewo.pp.ua/videos/video/${modalData}`}
             />
         </div>
     )

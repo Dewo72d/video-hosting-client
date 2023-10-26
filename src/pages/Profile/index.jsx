@@ -14,6 +14,7 @@ import { useAppSelector } from "../../utils/hooks/redux";
 import { useDispatch } from "react-redux";
 import { changeUsername, getUser, changePassword } from "../../utils/store/reducers/user";
 import { fetchVideosByUser } from "../../utils/store/reducers/videos";
+
 export default function Profile() {
 
     const dispatch = useDispatch();
@@ -51,10 +52,12 @@ export default function Profile() {
         if (videos.length > 0) {
             const arr = [...videos].reverse();
             console.log(videos);
-            return setCards(arr)
+            return setCards(arr )
         }
     }, [videos]);
 
+
+    if( user === null ) return <></>
 
     return (
         <div className={styles.App}>

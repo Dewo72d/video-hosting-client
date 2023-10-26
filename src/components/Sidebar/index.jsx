@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { Link } from 'react-router-dom';
 
 //Styles
@@ -22,7 +22,14 @@ export default function Sidebar({ }) {
     return (
         <div className={styles.App}>
             {
-                links.map((link, index) => (<Link key={index} to={link.value}>{link.name}</Link>))
+                links.map((link, index) => (
+                    <Link
+                        key={index}
+                        to={link.value}
+                    >
+                        {link.name}
+                    </Link>)
+                )
             }
         </div>
     )

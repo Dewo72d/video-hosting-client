@@ -15,7 +15,7 @@ import { fetchVideosByUser } from "../../utils/store/reducers/videos";
 import { useDispatch } from "react-redux";
 import Button from "../Button";
 
-export default function Card({ id, user_id, username, name, description, video, cb , canDelete}) {
+export default function Card({ id, user_id, username, name, description, video, cb, canDelete }) {
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
@@ -25,18 +25,18 @@ export default function Card({ id, user_id, username, name, description, video, 
         navigate(`/channel/${username}/${user_id}`)
     }
 
-    const  click = async () => {
-        dispatch(on({ isOpen: true, modal: "video", modalData: { video } }))
+    const click = async () => {
+        dispatch(on({ isOpen: true, modal: "video", modalData: id }))
     }
 
-    const delVideo = async () => {
-        dispatch(deleteVideo({id:id}));
-        dispatch( fetchVideosByUser({name:username, id:user_id}))
+    const delVideo = () => {
+        dispatch(deleteVideo({ id: id }));
+        dispatch(fetchVideosByUser({ name: username, id: user_id }))
     }
 
     return (
         <div className={styles.App} >
-            
+
             <div className={styles.preview} onClick={() => !!cb ? cb(video) : click()}>
                 <img src={Clown} alt={""} />
             </div>

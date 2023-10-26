@@ -13,6 +13,7 @@ import { useAppSelector } from "../../utils/hooks/redux";
 import { modalSlice } from "../../utils/store/reducers/changeModal";
 import { fetchVideos } from "../../utils/store/reducers/videos";
 import { useDispatch } from "react-redux";
+import Button from "../../Containers/Button";
 
 export default function Main() {
 
@@ -20,37 +21,34 @@ export default function Main() {
     const { on } = modalSlice.actions
 
     const videos = useAppSelector(state => state.videoReducer)
-    const [cards, setCards] = useState([])
-
     const user = useAppSelector(state => state.userReducer.user)
+
+    const [page, setPage] = useState(1)
 
 
     async function click(video) {
-        dispatch(on({ isOpen: true, modal: "video", modalData: { video } }))
+        dispatch(on({ isOpen: true, modal: "video", modalData: video }))
     }
 
     async function init() {
-        dispatch(fetchVideos())
+        dispatch(fetchVideos(page))
     }
 
     useEffect(() => {
-        void init();
-    }, []);
-
-    useEffect(() => {
-        if (videos.cards.length > 0) {
-            const arr = [...videos.cards].reverse();
-            return setCards(arr)
+        console.log("INIT >>>? ? ");
+        if (user !== null) {
+            void init();
         }
-    }, [videos])
+
+    }, [user , page])
 
 
     return (
-        <div className={styles.App}>
+        user && <div className={styles.App}>
             {
-                (user && cards.length > 0) ? cards.map((el) => (
+                videos?.cards?.length > 0 ? videos.cards.map(el => (
                     <Card
-                        video={el.video}
+                        video={el.id}
                         id={el.id}
                         name={el.name}
                         username={el.user.username}
@@ -61,6 +59,7 @@ export default function Main() {
                     />
                 )) : <></>
             }
+            <Button cb={() => setPage(page + 1)} text={"Load more"} />
         </div>
     )
 }

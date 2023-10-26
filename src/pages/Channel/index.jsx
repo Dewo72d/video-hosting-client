@@ -54,7 +54,7 @@ export default function Channel() {
                 {
                     cards?.length > 0 && cardsVideos.map(el => (
                         <Card
-                            video={el.video}
+                            video={el.id}
                             id={el.id}
                             name={el.name}
                             username={name}
